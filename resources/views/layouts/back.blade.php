@@ -8,7 +8,9 @@
     @include('back.includes.sidebar')
     <div class="main-panel">
         @include('back.includes.navbar')
-        
+
+        @include('back.includes.messages')
+                
         @yield('content')
 
         @include('back.includes.footer')

@@ -50,6 +50,17 @@ Route::prefix('cms')->group(function () {
 Route::get('/', function(){
     return redirect()->route('admin.home');
 });
+Route::get('/contact-us', 'Front\ContactqueryController@contactdetails')->name('front.contact');
+
+Route::post('/contact-us','Front\ContactqueryController@store')->name('front.contact.store');
+
+Route::get('/blog', 'Front\BlogController@show')->name('front.blog');
+
+Route::get('/blog-post', 'Front\BlogController@blogPost')->name('front.blog.post');
+
+Route::get('/about', 'Front\ViewController@about')->name('front.about');
+
+Route::get('/faq', 'Front\ViewController@faq')->name('front.faq');
 
 Route::get('/', 'Front\HomeController@index');
    

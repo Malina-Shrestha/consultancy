@@ -13,7 +13,7 @@
                     {{ Form::open(['method' => 'post', 'route' => 'blogs.store', 'files' => true]) }}
                         <div class="form-group">
                             {{ Form::label('title', 'Title') }}
-                            {{ Form::text('title', null, ['class' => 'form-control', 'require']) }}
+                            {{ Form::text('title', null, ['class' => 'form-control', 'required']) }}
                         </div>
 
                         <div class="form-group">

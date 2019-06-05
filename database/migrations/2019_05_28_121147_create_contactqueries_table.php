@@ -20,7 +20,7 @@ class CreateContactqueriesTable extends Migration
             $table->text('subject');
             $table->text('message');
             $table->boolean('followed')->default(false);
-            $table->integer('followed_by');
+            $table->integer('followed_by')->default(false);
             $table->timestamps();
         });
     }
