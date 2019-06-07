@@ -9,14 +9,14 @@
 
         <div class="sidebar-wrapper">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
-                    Creative Tim
+                <a href="{{ asset('/') }}" class="simple-text">
+                    Consultancy
                 </a>
             </div>
 
             <ul class="nav">
                 <li class="active">
-                    <a href="{{ asset('/')}}">
+                    <a href="{{ route('admin.home')}}">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>

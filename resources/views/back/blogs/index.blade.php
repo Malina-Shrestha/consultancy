@@ -6,7 +6,7 @@
 @endsection
 
 @section('pageTitle')
-    <a class="navbar-brand" href="#"><i class="pe-7s-display1"></i>Blogs</a>
+    <a class="navbar-brand" href="{{ route('blogs.index') }}"><i class="pe-7s-display1"></i>Blogs</a>
     <a href="{{ route('blogs.create') }}" class="navbar-brand"><i class="pe-7s-plus"></i>New BLog</a>
 @endsection
 
@@ -21,7 +21,7 @@
                             <th>SN</th>
                             <th>Thumbnail</th>
                             <th>Title</th>
-                            <th>Slug</th>
+                            {{-- <th>Slug</th> --}}
                             <th>Views</th>
                             <th>Published</th>
                             <th>Published By</th>
@@ -40,7 +40,7 @@
                                 <img src="{{ asset('public/img/'.$blog->thumbnail) }}" class="img-fluid small" style="max-width:80px">
                             </td>
                             <td>{{$blog->title}}</td>
-                            <td>{{$blog->slug}}</td>
+                            {{-- <td>{{$blog->slug}}</td> --}}
                             <td>{{$blog->views}}</td>
                             <td>@if($blog->published)True @else False @endif</td>
                             <td>{{$blog->publisher->name}}</td>

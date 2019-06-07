@@ -8,16 +8,19 @@ use App\Http\Controllers\Controller;
 
 class BlogController extends Controller
 {
-    public function show(Blog $blog)
+    public function show()
     {
-     
-        return view('front.blog.show', compact('blog'));
+        $blogs = Blog::where('published',true)->orderBy('id','DESC')->get();
+        $recentBlogs = Blog::where('published',true)->orderBy('id','DESC')->take(3)->get();
+        return view('front.blog.show', compact('blogs','recentBlogs'));
 
     }
 
-    public function blogPost()
+    public function blogDetail($slug)
     {
-        return view('front.blog.blogpost');
+        $blog = Blog::where('slug',$slug)->first();
+        $recentBlogs = Blog::where('published',true)->orderBy('id','DESC')->take(3)->get();
+        return view('front.blog.detail', compact('blog','recentBlogs'));
     }
 
 }

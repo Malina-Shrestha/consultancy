@@ -6,7 +6,7 @@
 @endsection
 
 @section('pageTitle')
-    <a class="navbar-brand" href="#">Contact Queries</a>
+    <a class="navbar-brand" href="{{ route('contactqueries.index') }}"><i class="pe-7s-comment"></i>Contact Queries</a>
 @endsection
 
 @section('content')

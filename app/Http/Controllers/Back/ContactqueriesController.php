@@ -11,6 +11,7 @@ class ContactqueriesController extends Controller
     public function index()
     {
         $contactqueries = ContactQuery::get();
+        
         return view('back.contactqueries.index', compact('contactqueries'));
     }
 }

@@ -25,12 +25,12 @@
                 
                     {{ Form::open(['method' => 'post', 'route' => ['front.contact.store']]) }}
                         <div class="row">
-                            <div class="col-md-12"> <input type="text" name="subject" placeholder="Subject"> </div>
-                            <div class="col-md-6 col-sm-6 col-12"> <input type="text" name="name" placeholder="Name">
+                            <div class="col-md-12"> <input type="text" name="subject" placeholder="Subject" required> </div>
+                            <div class="col-md-6 col-sm-6 col-12"> <input type="text" name="name" placeholder="Name" required>
                             </div>
                             <div class="col-md-6 col-sm-6 col-12"> <input type="email" name="email"
-                                    placeholder="E-mail"> </div>
-                            <div class="col-md-12"> <textarea name="message" placeholder="Message"></textarea> </div>
+                                    placeholder="E-mail" required> </div>
+                            <div class="col-md-12"> <textarea name="message" placeholder="Message"  required></textarea> </div>
                             <div class="col-md-12">
                                 <div class="center-holder"> <button type="submit">Send Message</button> </div>
                             </div>

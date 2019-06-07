@@ -1,7 +1,7 @@
 @extends('layouts.back')
 
 @section('pageTitle')
-    <a class="navbar-brand" href="#">Blogs</a>
+    <a class="navbar-brand" href="{{ route('blogs.index') }}">Blogs</a>
 @endsection
 
 @section('content')
@@ -15,30 +15,40 @@
                             {{ Form::label('title', 'Title') }}
                             {{ Form::text('title', null, ['class' => 'form-control', 'required']) }}
                         </div>
-
+                        
                         <div class="form-group">
                             {{ Form::label('slug', 'Slug') }}
                             {{ Form::text('slug', null, ['class' => 'form-control', 'required']) }}
                         </div>
-                        
+ 
                         <div class="form-group">
                             {{ Form::label('description', 'Description') }}
-                            {{ Form::textarea('description', null, ['class' => 'form-control', 'id' => 'editor', 'rows' => '10', 'cols' => '80']) }}
+                            {{ Form::textarea('description', null, ['class' => 'form-control', 'id' => 'editor', 'rows' => '10', 'cols' => '80', 'required', $errors->has('description') ? ' is-invalid' : '' ]) }}
+                            @if ($errors->has('description'))
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $errors->first('description') }}</strong>
+								</span>
+							@endif
                         </div>
-            
+
                         <div class="form-group">
                             {{ Form::label('thumbnail', 'Thumbnail') }}
-                            {{ Form::file('thumbnail', null, ['class' => 'form-control-file'])}}
+                            {{ Form::file('thumbnail', null, ['class' => 'form-control-file', 'required', $errors->has('description') ? ' is-invalid' : '']) }}
+                            @if ($errors->has('thumbnail'))
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $errors->first('thumbnail') }}</strong>
+								</span>
+							@endif
                         </div>
 
                         <div class="form-group">
                             {{ Form::label('meta_title', 'Meta title') }}
-                            {{ Form::text('meta_title', null, ['class' => 'form-control', 'require']) }}
+                            {{ Form::text('meta_title', null, ['class' => 'form-control', 'required']) }}
                         </div>
 
                         <div class="form-group">
                             {{ Form::label('meta_description', 'Meta Description') }}
-                            {{ Form::text('meta_description', null, ['class' => 'form-control', 'require']) }}
+                            {{ Form::text('meta_description', null, ['class' => 'form-control', 'required']) }}
                         </div>
                         
                         <div class="form-group">

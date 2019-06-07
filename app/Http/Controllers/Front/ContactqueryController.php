@@ -11,7 +11,7 @@ class ContactqueryController extends Controller
     public function contactdetails()
     {
         $contactquery = ContactQuery::get();
-        
+        // return $contactquery;
         return view('front.contact.show', compact('contactquery'));
     }
 
@@ -20,7 +20,7 @@ class ContactqueryController extends Controller
         
         $this->validate($request, [
             'name' => 'required',
-            'email'=> 'required|email|unique:contactqueries,email',
+            'email'=> 'required',
             'subject' => 'required',
             'message' => 'required'
         ]);

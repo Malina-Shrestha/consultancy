@@ -6,7 +6,7 @@
 @endsection
 
 @section('pageTitle')
-    <a class="navbar-brand" href="#"></i>User</a>
+    <a class="navbar-brand" href="{{ route('admins.index') }}"><i class="pe-7s-add-user"></i>User</a>
     <a href="{{ route('admins.create') }}" class="navbar-brand"><i class="pe-7s-plus"></i>New User</a>
 @endsection
 
@@ -18,6 +18,7 @@
                     <table id="contact" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
+                            <th>sn</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Created At</th>                   
@@ -27,6 +28,7 @@
                     <tbody>
                         @foreach($admins as $admin)
                         <tr>
+                            <td>{{$loop->iteration}}</td>
                             <td>{{$admin->name}}</td>
                             <td>{{$admin->email}}</td>
                             <td>{{$admin->created_at}}</td>

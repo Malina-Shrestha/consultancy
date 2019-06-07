@@ -410,37 +410,24 @@
                 @foreach($blogs as $blog)
                     <div class="col-md-4 col-sm-4 col-12">
                         <div class="blog-grid">
-                            <div class="blog-grid-img"> <img src="{{ asset('public/img')}}/{{ $blog->thumbnail }}" alt="img">
+                            <div class="blog-grid-img"> <img src="{{ asset('public/img')}}/{{ $blog->thumbnail }}" alt="img" style="height:200px;">
                                 <div class="data-box-grid">
                                 <h4>{!!date('d',strtotime($blog->created_at)) !!}</h4>
-                                    <p>{!!date('M
-                                    ',strtotime($blog->created_at)) !!}</p>
+                                    <p>{!!date('M',strtotime($blog->created_at)) !!}</p>
                                 </div>
                             </div>
                             <div class="blog-grid-text">
                                 <h4>{{ $blog->title}}</h4>
                                 <ul>
-                                    <li><i class="fa fa-calendar"></i>Feb 19, 2018</li>
+                                <li><i class="fa fa-calendar"></i>{{ date('Y M d',strtotime($blog->created_at)) }}</li>
 
                                 </ul>
                                 <p>{!! substr($blog->description , 0, 100) . '...';!!}</p>
-                                <div class="mt-20 left-holder"> <a href="blog-post.html" class="primary-button button-sm">Read More</a> </div>
+                                <div class="mt-20 left-holder"> <a href="{{ route('front.blog.detail',$blog->slug) }}" class="primary-button button-sm">Read More</a> </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
-            </div>
-        </div>
-    </div>
-    <div class="section-block-grey border-top border-bottom">
-        <div class="container">
-            <div class="section-heading center-holder">
-                <h2>Stay <strong>informed</strong></h2>
-                <div class="section-heading-line"></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br>incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div class="mt-30 center-holder">
-                <form class="newsletter-form" method="post" action="#"> <input type="email" name="email" placeholder="Enter Your Email adress"> <button type="submit">Subscribe</button> </form>
             </div>
         </div>
     </div>

@@ -28,7 +28,8 @@ class BlogsController extends Controller
             'slug' => 'required|unique:blogs,slug',
             'description' => 'required',
             'meta_title' => 'required',
-            'meta_description' => 'required'
+            'meta_description' => 'required',
+            'thumbnail' => 'required'
         ]);
 
         $blog = new Blog;

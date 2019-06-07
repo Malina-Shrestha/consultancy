@@ -13,91 +13,42 @@
     <div class="section-block">
         <div class="container">
             <div class="row">
+                
                 <div class="col-md-9 col-sm-8 col-12">
-                    <div class="blog-list-left"> <img src="{{ asset('public/img/blog/list-s-2.jpg') }}" alt="img">
+                @foreach($blogs as $blog)
+                    <div class="blog-list-left"> <img src="{{ asset('public/img')}}/{{ $blog->thumbnail }}" alt="img" alt="img">
                         <div class="data-box">
-                            <h4>23</h4> <strong>Mar</strong>
+                                <h4>{!!date('d',strtotime($blog->created_at)) !!}</h4>
+                                <strong>{!!date('M',strtotime($blog->created_at)) !!}</strong>
                         </div>
                         <div class="blog-title-box">
-                            <h2>Save Time & Money In Your Business</h2> <span><i class="fa fa-calendar"></i>Feb 19,
-                                2018</span>
+                            <h2>{{ $blog->title }}</h2> <span><i class="fa fa-calendar"></i>{{ date('Y M d',strtotime($blog->created_at)) }}</span>
                         </div>
                         <div class="blog-post-content">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. It has
-                                survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages.</p>
+                            <p>{!! substr($blog->description , 0, 100) . '...';!!}</p>
                         </div>
-                        <div class="mt-15 mb-40"> <a href="{{ route('front.blog.post') }}" class="primary-button button-md">Read Article</a> </div>
+                        <div class="mt-15 mb-40"> <a href="{{ route('front.blog.detail',$blog->slug) }}" class="primary-button button-md">Read Article</a> </div>
                     </div>
-                    <div class="blog-list-left"> <img src="{{ asset('public/img/blog/list-s-1.jpg') }}" alt="img">
-                        <div class="data-box">
-                            <h4>23</h4> <strong>Mar</strong>
-                        </div>
-                        <div class="blog-title-box">
-                            <h2>Save Time & Money In Your Business</h2> <span><i class="fa fa-calendar"></i>Feb 19,
-                                2018</span>
-                        </div>
-                        <div class="blog-post-content">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. It has
-                                survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages.</p>
-                        </div>
-                        <div class="mt-15 mb-40"> <a href="{{ route('front.blog.post') }}" class="primary-button button-md">Read Article</a> </div>
-                    </div>
-                    <div class="blog-list-left"> <img src="{{ asset('public/img/blog/list-s-3.jpg') }}" alt="img">
-                        <div class="data-box">
-                            <h4>23</h4> <strong>Mar</strong>
-                        </div>
-                        <div class="blog-title-box">
-                            <h2>Save Time & Money In Your Business</h2> <span><i class="fa fa-calendar"></i>Feb 19,
-                                2018</span>
-                        </div>
-                        <div class="blog-post-content">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. It has
-                                survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages.</p>
-                        </div>
-                        <div class="mt-15 mb-40"> <a href="{{ route('front.blog.post') }}" class="primary-button button-md">Read Article</a> </div>
-                    </div>
+                @endforeach
                 </div>
+                {{-- Recent Blogs --}}
                 <div class="col-md-3 col-sm-4 col-12">
                     <div class="blog-list-right">
                         <div class="blog-list-left-heading">
-                            <h4>Recent News</h4>
+                            <h4>Recent Blogs</h4>
                         </div>
-                        <div class="latest-posts">
-                            <div class="row">
-                                <div class="col-md-5 col-sm-5 col-4 latest-posts-img"> <img src="{{ asset('public/img/blog/b-t-1.jpg') }}"
-                                        alt="blog-img"> </div>
-                                <div class="col-md-7 col-sm-7 col-8 latest-posts-text pl-0"> <a href="#">Simply dummy
-                                        text of the printing</a> <span>Mar 13, 2018</span> </div>
+                        @foreach($recentBlogs as $blog)
+                            <div class="latest-posts">
+                                <div class="row">
+                                    <div class="col-md-5 col-sm-5 col-4 latest-posts-img"> <img src="{{ asset('public/img') }}/{{ $blog->thumbnail}}" alt="blog-img"> 
+                                    </div>
+                                    <div class="col-md-7 col-sm-7 col-8 latest-posts-text pl-0"> 
+                                        <a href="#">{{ $blog->title }}</a> 
+                                    <span>{!! date('m',strtotime($blog->created_at)) !!} {!! date('d',strtotime($blog->created_at)) !!}, {!! date('Y',strtotime($blog->created_at)) !!}</span> 
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="latest-posts">
-                            <div class="row">
-                                <div class="col-md-5 col-sm-5 col-4 latest-posts-img"> <img src="{{ asset('public/img/blog/b-t-2.jpg') }}"
-                                        alt="blog-img"> </div>
-                                <div class="col-md-7 col-sm-7 col-8 latest-posts-text pl-0"> <a href="#">Simply dummy
-                                        text of the printing</a> <span>Mar 19, 2018</span> </div>
-                            </div>
-                        </div>
-                        <div class="latest-posts">
-                            <div class="row">
-                                <div class="col-md-5 col-sm-5 col-4 latest-posts-img"> <img src="{{ asset('public/img/blog/b-t-3.jpg') }}"
-                                        alt="blog-img"> </div>
-                                <div class="col-md-7 col-sm-7 col-8 latest-posts-text pl-0"> <a href="#">Simply dummy
-                                        text of the printing</a> <span>Mar 27, 2018</span> </div>
-                            </div>
-                        </div>
+                        @endforeach
                         
                     </div>
                 </div>

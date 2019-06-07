@@ -22,8 +22,13 @@
                         </div>
                         
                         <div class="form-group">
-                            {{ Form::label('description', 'Description') }}
-                            {{ Form::textarea('description', null, ['class' => 'form-control', 'id' => 'editor', 'rows' => '10', 'cols' => '80']) }}
+                                {{ Form::label('description', 'Description') }}
+                                {{ Form::textarea('description', null, ['class' => 'form-control', 'id' => 'editor', 'rows' => '10', 'cols' => '80', 'required', $errors->has('description') ? ' is-invalid' : '' ]) }}
+                                @if ($errors->has('description'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                @endif
                         </div>
             
                         <div class="form-group">
@@ -36,12 +41,12 @@
 
                         <div class="form-group">
                             {{ Form::label('meta_title', 'Meta title') }}
-                            {{ Form::text('meta_title', null, ['class' => 'form-control', 'require']) }}
+                            {{ Form::text('meta_title', null, ['class' => 'form-control', 'required']) }}
                         </div>
 
                         <div class="form-group">
                             {{ Form::label('meta_description', 'Meta Description') }}
-                            {{ Form::text('meta_description', null, ['class' => 'form-control', 'require']) }}
+                            {{ Form::text('meta_description', null, ['class' => 'form-control', 'required']) }}
                         </div>
                         
                         <div class="form-group">

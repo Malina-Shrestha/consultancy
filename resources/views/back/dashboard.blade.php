@@ -1,7 +1,7 @@
 @extends('layouts.back')
 
 @section('pageTitle')
-    <a class="navbar-brand" href="#">Dashboard</a>
+    <a class="navbar-brand" href="{{ route('admin.home') }}">Dashboard</a>
 @endsection
 
 @section('content')

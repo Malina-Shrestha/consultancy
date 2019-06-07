@@ -16,6 +16,10 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'required'
+        ]);
         $credentials = $request->only('email', 'password');
 
         if (Auth::guard('admin')->attempt($credentials, $request->remember)) {

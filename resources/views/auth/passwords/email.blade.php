@@ -18,7 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('vendor/select2/select2.min.css') }}">
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('public/css/front/util.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/css/front/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/css/front/main-fp.css') }}">
 <!--===============================================================================================-->
 </head>
 <body>

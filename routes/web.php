@@ -56,7 +56,7 @@ Route::post('/contact-us','Front\ContactqueryController@store')->name('front.con
 
 Route::get('/blog', 'Front\BlogController@show')->name('front.blog');
 
-Route::get('/blog-post', 'Front\BlogController@blogPost')->name('front.blog.post');
+Route::get('/blog/{slug}', 'Front\BlogController@blogDetail')->name('front.blog.detail');
 
 Route::get('/about', 'Front\ViewController@about')->name('front.about');
 

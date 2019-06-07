@@ -9,19 +9,11 @@
 
         @include('front.includes.navbar')
 
+        @include('front.includes.messages')
+
         @yield('content')
-
-    
-
-        
         
         @include('front.includes.footer')
-            
-            {{-- @include('front.includes.bar') --}}
-    
-
-
-
-{{-- @yield('scripts') --}}
+        
 </body>
 </html>

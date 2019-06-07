@@ -9,7 +9,7 @@
     <div class="main-panel">
         @include('back.includes.navbar')
 
-        @include('back.includes.messages')
+        {{-- @include('back.includes.messages')  --}}
                 
         @yield('content')
 
